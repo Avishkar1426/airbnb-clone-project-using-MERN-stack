@@ -1,0 +1,60 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+    <form method="post" action="/wanderlust/<%= data._id %>/update?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-8">
+        <h3 class="text-center mt-4">Edit Listing</h3>
+        <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+        <input type="text"  name="listing[title]" value="<%= data.title %>" class="form-control  mb-1" placeholder="title" required>
+        <div class="invalid-feedback">
+            You should enter the title
+          </div>
+    </div>
+    <div class="mb-2 ">
+         <label for="description" class="form-lable">Description</label>
+        <textarea type="text" class="form-control" name="listing[description]" placeholder="description"><%= data.description %></textarea>
+        <div class="invalid-feedback">
+            pleace enter a short description
+        </div>
+    </div>
+    <div class="mb-2 edit-img">
+     <img src="<%= data.image.url %>" alt="error">
+    </div>
+    <div class="mb-2">
+        <label for="img" class="form-lable">Upload Image</label>
+        <input type="file" class="form-control" name="listing[image]" placeholder="Upload Image">
+    </div>
+    <div class="row">
+    <div class="col-md-4 mb-2">
+        <label for="price" class="form-lable">Price</label>
+        <input type="text" name="listing[price]"value="<%= data.price %>"  class="form-control  mb-1" placeholder="price" required>
+        <div class="invalid-feedback">
+            You should enter the price
+        </div>
+    </div>
+    <div class="mb-2 col-md-8">
+        <label for="country" class="form-lable">Country</label>
+        <input type="text" name="listing[country]" value="<%= data.country %>" class="form-control  mb-1" placeholder="country" required>
+        <div class="invalid-feedback">
+            You should enter the country
+        </div>
+        </div>
+</div>
+<div class="mb-2">
+    <label for="location" class="form-lable">Location</label>
+    <input type="text" name="listing[location]"value="<%= data.location %>" class="form-control  mb-1" placeholder="location" required>
+    <div class="invalid-feedback">
+        You should enter the location
+    </div>
+</div><br>
+   
+    <div class="mt-2 mb-4 text-center">
+        <button class="btn btn-dark" type="submit">Edit</button>
+    </div>
+    </div>
+</div>
+      
+    </form>
+    <script src="/javaScript/script.js"></script>
+</body>

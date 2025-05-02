@@ -1,0 +1,133 @@
+<style>
+  /* .filters .swiper-wrapper {
+     display: flex;
+    overflow: hidden; 
+
+  } */
+ 
+  
+   
+  .filter_icons {
+    text-align: center;
+    margin: 10px 0;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 1;
+    transition: .3s;
+
+  }
+
+  .filter_icons:hover{
+    opacity: 0.8;
+  }
+
+  .filter_icons p{
+    font-size:0.8rem;
+  }
+  .filters .slide-icon{
+  
+    padding-top: 0.5rem;
+    border-radius: 50%;
+    width: 2rem;
+    align-self: center;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #656565;
+  }
+
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: 1rem !important;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+}
+
+@media (max-width: 920px) {
+  .swiper-button-next:after, .swiper-button-prev:after {
+   display:none
+}
+}
+  
+
+</style>
+<% layout("./layouts/boilerplate") %> 
+<body class="body">
+<div class="filters swiper">
+  <!-- <i class="fa-solid fa-angle-left slide-icon swiper-button-prev"></i> -->
+   <div class="slider-wrapper">
+  <div class="swiper-wrapper">
+
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-fire"></i>
+    <p>Trending</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-bed"></i>
+    <p>Rooms</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-house"></i>
+    <p>Cabins</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-brands fa-fort-awesome"></i>
+    <p>Mansions</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-building"></i>
+    <p>Top Cities</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-igloo"></i>
+    <p>Domes</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-ship"></i>
+    <p>Boat</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-person-swimming"></i>
+    <p>Amazing Pools</p>
+  </div>
+  <div class="filter_icons swiper-slide">
+    <i class="fa-solid fa-campground"></i>
+    <p>Camping</p>
+  </div>
+  
+  
+</div>
+
+  <!-- <i class="fa-solid fa-angle-right slide-icon swiper-button-next"></i> -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+</div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(let data of initData){ %> 
+       
+    <div class="card" style="width: 20rem;">
+        <a href="/wanderlust/<%= data._id %>/show" class="link">
+    
+        <img src="<%= data.image.url %>" class="card-img-top" style="height: 20rem;" alt="...">
+      
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= data.title %></b><br>
+            &#8377;<%= data.price.toLocaleString("en-IN") %>/ night
+          </p>
+        </div>
+    </a>
+      </div>
+  
+     <% } %> 
+    </div>
+    <!-- Swiper link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/javaScript/slider.js"></script>
+</body>

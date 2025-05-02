@@ -1,0 +1,70 @@
+<style>
+   .search{
+    display:flex !important;
+    justify-content:center;
+    align-items:center;
+    margin-left: auto;
+   }
+
+   .d-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 20px;
+    }
+
+    .d-flex input{
+      border-radius:1rem
+    
+    }
+
+    .d-flex #btn{
+      border: none;
+    background:  rgb(217, 48, 48);
+    padding: 0.3rem;
+    font-size: 1rem;
+    color: #ffff;
+    border-radius: 1rem;
+    width: 9rem;
+
+    }
+    
+    .d-flex #btn:hover{
+      background: red;
+      color: #ffff;
+    }
+</style>
+
+
+<body>
+    <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><i class="fa-regular fa-compass"></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/wanderlust">Explore</a>
+           
+            </div>
+            <div class="search">
+              <form class="d-flex" role="search" action="/wanderlust/search" method="GET">
+                <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button id="btn" type="submit">Search</button>
+              </form>
+            </div>
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="/wanderlust/newData">Add New Listings</a>
+              <% if(!currUser) {%>
+              <a class="nav-link active" aria-current="page" href="/wanderlust/user"><b>SighUp</b></a>
+              <a class="nav-link" href="/wanderlust/login"><b>Login</b></a>
+              <% } %>
+              <% if(currUser) {%>
+              <a class="nav-link" href="/wanderlust/logout"><b>Logout</b></a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </nav>
+</body>

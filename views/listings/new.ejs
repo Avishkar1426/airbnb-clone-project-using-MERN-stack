@@ -1,0 +1,55 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+    <form method="post" action="/wanderlust/newInfo" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="row">
+         <div class="col-8">
+        <h3 class="text-center mt-4">Add New Listing</h3>
+        <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+        <input type="text"  name="listing[title]" class="form-control  mb-1" placeholder="title" required>
+        <div class="invalid-feedback">
+            You should enter the title
+          </div>
+    </div>
+    <div class="mb-2">
+         <label for="description" class="form-lable">Description</label>
+        <textarea type="text" class="form-control" name="listing[description]" placeholder="description" required></textarea>
+        <div class="invalid-feedback">
+            pleace enter a short description
+        </div>
+    </div>
+    <div class="mb-2">
+        <label for="img" class="form-lable">Upload Image</label>
+        <input type="file" name="listing[image]" class="form-control" placeholder="Upload Image" >
+    </div>
+    <div class="row">
+    <div class="col-md-4 mb-2">
+        <label for="price" class="form-lable">Price</label>
+        <input type="text" name="listing[price]" class="form-control  mb-1" placeholder="price" required>
+        <div class="invalid-feedback">
+            You should enter the price
+        </div>
+    </div>
+    <div class="mb-2 col-md-8">
+        <label for="country" class="form-lable">Country</label>
+        <input type="text" name="listing[country]" class="form-control  mb-1" placeholder="country" required>
+        <div class="invalid-feedback">
+            You should enter the country
+        </div>
+        </div>
+</div>
+<div class="mb-2">
+    <label for="location" class="form-lable">Location</label>
+    <input type="text" name="listing[location]" class="form-control  mb-1" placeholder="location" required>
+    <div class="invalid-feedback">
+        You should enter the location
+    </div>
+</div><br>
+
+    <div class="mt-4 text-center">
+        <button class="btn btn-dark" type="submit">Add</button>
+    </div>
+    </div>
+</div>
+    </form>
+</body>
