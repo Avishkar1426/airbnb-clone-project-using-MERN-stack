@@ -30,6 +30,6 @@ module.exports.userLogout = (req,res)=>{
             return next(err);
         }
         req.flash("success","Goodbye! See you soon");
-        res.redirect("/wanderlust/user")
+        res.redirect("/wanderlust")
     })
 }
