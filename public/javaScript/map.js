@@ -9,5 +9,5 @@
     const marker = new mapboxgl.Marker({color: "red",scale:1.5})
         .setLngLat(listing.geometry.coordinates) // coordinates from the database
         .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
-            .setHTML(`<h4>${listing.title}</h4><p>${listing.location}</p>`))
+            .setHTML(`<h5>${listing.title}</h5><p>${listing.location}</p>`))
         .addTo(map); // add marker to map
