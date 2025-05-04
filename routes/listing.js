@@ -13,6 +13,8 @@ router.get("/",asyncWrap(async (req,res) => {
     const initData = await listing.find({});
     res.render("listings/index.ejs",{initData});
 }));
+
+router.get("/airbnb-clone-project-using-mern-stack.onrender.com",asyncWrap(controllers.randerApp));
 // show route
 router.route("/:id/show") 
 .get(asyncWrap(controllers.listingShow));

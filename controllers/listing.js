@@ -103,3 +103,7 @@ module.exports.searchEngine = async (req,res) =>{
   }
   res.render("listings/search.ejs",{searchData})
 }
+
+module.exports.randerApp = async (req,res) =>{  
+  res.rander("wanderlust/index.ejs")
+}
