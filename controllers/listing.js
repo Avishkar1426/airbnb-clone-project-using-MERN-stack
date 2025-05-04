@@ -61,16 +61,26 @@ module.exports.editData = async (req,res) =>{
 
 module.exports.updateData = async (req,res)=>{
   let {id} = req.params;
-    let Listing = await listing.findByIdAndUpdate(id,{...req.body.listing});
+  let Listing = await listing.findByIdAndUpdate(id,{...req.body.listing});
+  let response = await geocodingClient
+
+.forwardGeocode({
+  query: req.body.listing.location,
+  limit: 1
+})
+.send()
+let coordinates = response.body.features[0].geometry.coordinates;
+Listing.geometry = {type:"Point",coordinates};
+await Listing.save();
+
+
    if(typeof req.file !== "undefined"){
     let url = req.file.path;
     let filename = req.file.filename;
     Listing.image = {url,filename};
     await Listing.save();
    }
-
-
-
+  
    req.flash("success", "Listing edit successfully")
    res.redirect(`/wanderlust/${id}/show`);
 }

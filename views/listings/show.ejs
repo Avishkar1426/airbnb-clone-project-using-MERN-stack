@@ -3,8 +3,8 @@
   const listing = <%- JSON.stringify(show) %>;
 </script>
 <body>
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row ms-1 me-1">
+        <div class="col-md-12 col-lg-6 col-sm-12">
             <h3 class="m-2">Listing details:</h3>
     <div class="card ">
         <img src="<%= show.image.url %>" class="card-img-top show-img" alt="...">
@@ -32,7 +32,7 @@
 </div>
 <hr>
 <div class="row">
-<div class="col-md-8">
+<div class="col-md-12 col-lg-6 col-sm-12">
   <h3>Where you'll be</h3>
   <div id="map"></div>
 </div>
@@ -40,7 +40,7 @@
 
 <hr>
 <div class="row">
-  <div class="col-6">
+  <div class="col-md-10 col-lg-6 col-sm-12">
     
     <% if(currUser) {%>
     <form action="/wanderlust/<%= show._id %>/review" method="POST" novalidate class="needs-validation">
@@ -59,9 +59,9 @@
         <input type="radio" id="first-rate5" name="review[rating]" value="5" />
         <label for="first-rate5" title="Amazing">5 stars</label>
       </fieldset><br>
-     <textarea name="review[comment]" id="review" class="form-control" rows="5" cols="100" required></textarea>
+     <textarea name="review[comment]" id="review" class="form-control" rows="5" cols="150" required></textarea>
      <div class="invalid-feedback">Pleace add some commends for review </div>
-      <button class="btn btn-ouline btn-dark m-3">Add</button>
+      <button class="btn btn-ouline btn-dark mt-3 mb-3">Add</button>
     </form>
   <% } %>
   </div>
@@ -72,16 +72,16 @@
 <% if(show.reviews.length > 0){ %>
   <hr>
   <p><b>All Reviews</b></p>
-  <div class="row m-3">
+  <div class="row m-2">
    <% for(let data of show.reviews){ %>
-    <div class="card col-5 m-1 review">
+    <div class="card col-md-4 m-1 review">
   <div class="card-body m-1">
     <h5 class="card-title">@<%= data.author.username %></h5>
     <p class="starability-result" data-rating="<%= data.rating %>">
-    <p class="card-text" style="font-size: 1rem;"><%= data.comment %></p>
+    <p class="card-text" style="font-size: 1rem; margin-bottom: 0;"><%= data.comment %></p>
     <form method="POST" action="/wanderlust/<%= show._id %>/review/<%= data._id %>?_method=DELETE" >
       <% if(currUser && currUser._id.equals(data.author._id)) {%>
-    <button class="badge rounded-pill bg-danger">delete</button>
+    <button class="badge rounded-pill bg-danger mb-2">delete</button>
       <% } %>
   </form>
   </div>

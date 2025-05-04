@@ -107,9 +107,10 @@
   <div class="swiper-button-next"></div>
 </div>
 </div>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <div class="row">
+
     <% for(let data of initData){ %> 
-       
+        
     <div class="card" style="width: 20rem;">
         <a href="/wanderlust/<%= data._id %>/show" class="link">
     
@@ -127,6 +128,7 @@
   
      <% } %> 
     </div>
+    
     <!-- Swiper link -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/javaScript/slider.js"></script>
